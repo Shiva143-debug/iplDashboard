@@ -1,38 +1,294 @@
-.App {
-  text-align: center;
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Bree Serif', serif;
+  background-color: #0f172a;
+  color: #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Common Layout */
+.home-container {
+  background-image: url(https://assets.ccbp.in/frontend/react-js/ipl-dashboard-lg-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 768px) {
+  .home-container {
+    background-image: url(https://assets.ccbp.in/frontend/react-js/ipl-dashboard-sm-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.team-matches-container {
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.ipl-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.teams-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0;
+  width: 100%;
+  max-width: 1000px;
+
+}
+
+.team-card {
+  background-color: #ffffff33;
+  border: 1px solid #475569;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(500px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+.team-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.team-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.team-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.team-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.team-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.team-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.team-card:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+.team-card:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.team-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.team-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.team-name {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.team-banner {
+  width: 100%;
+  /* max-width: 1000px; */
+  margin-bottom: 24px;
+  border-radius: 8px;
+}
+
+.latest-match-container {
+  width: 100%;
+  /* max-width: 1000px; */
+  margin-bottom: 20px;
+}
+
+.latest-match-title {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.latest-match-card {
+  background-color: #1e293b;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  animation: slideIn 0.6s ease forwards;
+  transform: translateY(40px);
+  opacity: 0;
+  list-style-type: none;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.latest-match-logo {
+  width: 80px;
+  height: 80px;
+}
+
+.match-cards-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  width: 100%;
+  /* max-width: 9000px; */
+  list-style-type: none;
+  margin-left: -2%;
+}
+
+.match-card {
+  background-color: #1e293b;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.match-card:hover {
+  transform: translateY(-5px);
+}
+
+.match-logo {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.status-won {
+  color: #18ed66;
+  font-weight: bold;
+}
+
+.status-lost {
+  color: #e31a1a;
+  font-weight: bold;
+}
+
+/* Loader */
+.loader {
+  border: 5px solid #ffffff33;
+  border-top: 5px solid #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 40px auto;
+}
+
+@keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Team-Specific Backgrounds */
+.kkr-bg {
+  background: linear-gradient(to bottom, #5755a7, #1e293b);
+}
+
+.rcb-bg {
+  background: linear-gradient(to bottom, #da237b, #1e293b);
+}
+
+.kxp-bg {
+  background: linear-gradient(to bottom, #d91c1f, #1e293b);
+}
+
+.csk-bg {
+  background: linear-gradient(to bottom, #f7db00, #1e293b);
+}
+
+.rr-bg {
+  background: linear-gradient(to bottom, #4f5db0, #1e293b);
+}
+
+.mi-bg {
+  background: linear-gradient(to bottom, #13418b, #1e293b);
+}
+
+.srh-bg {
+  background: linear-gradient(to bottom, #f26d22, #1e293b);
+}
+
+.dc-bg {
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .latest-match-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .team-card {
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 5px;
+  }
+
+  .match-card {
+    padding: 16px;
+  }
+
+  .match-cards-list {
+    margin-left: -6%;
   }
 }
