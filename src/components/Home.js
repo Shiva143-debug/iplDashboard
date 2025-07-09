@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Oval } from 'react-loader-spinner';
-
 
 const Home = () => {
   const [teams, setTeams] = useState([]);
@@ -30,9 +28,7 @@ const Home = () => {
         <h1 className="heading">IPL Dashboard</h1>
       </div>
       {loading ? (
-        <div testid="loader">
-          <Oval color="#ffffff" height={50} width={50} />
-        </div>
+       <div data-testid="loader" className="loader" />
       ) : (
         <ul className="teams-list">
           {teams.map(team => (

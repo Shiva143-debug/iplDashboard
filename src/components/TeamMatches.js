@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Oval } from 'react-loader-spinner';
 import LatestMatch from './LatestMatch';
 import MatchCard from './MatchCard';
 
@@ -32,9 +31,7 @@ const TeamMatches = () => {
   return (
     <div className={`team-matches-container ${id.toLowerCase()}-bg`}>
       {loading ? (
-        <div testid="loader">
-          <Oval color="#ffffff" height={50} width={50} />
-        </div>
+       <div data-testid="loader" className="loader" />
       ) : (
         <>
           <img src={teamData.teamBannerUrl} alt="team banner" className="team-banner"/>
