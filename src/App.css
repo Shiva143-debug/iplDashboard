@@ -276,12 +276,19 @@ body {
     flex-direction: column;
     align-items: flex-start;
   }
+  .teams-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+  }
 
   .team-card {
-    flex-direction: column;
     align-items: center;
-    width: 80%;
+    width: 30vw;
     margin: 5px;
+    min-height: 100px;
   }
 
   .match-card {
